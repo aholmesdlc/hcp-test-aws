@@ -22,12 +22,11 @@ resource "aws_lb_target_group" "terraweb-tg" {
   vpc_id   = "vpc-06b76541cfa2305ca"
 
 }
-resource "aws_lb_target_group_attachment" "example" {
-  target_group_arn = aws_lb_target_group.terraweb-tg.arn
-  for_each         = toset([aws_instance.terraweb1.id, aws_instance.terraweb2.id])
-  port             = 80
-  target_id        = each.value
+#resource "aws_lb_target_group_attachment" "example" {
+#  target_group_arn = aws_lb_target_group.terraweb-tg.arn
+#  for_each         = toset([aws_instance.terraweb1.id, aws_instance.terraweb2.id])
+#  port             = 80
+#  target_id        = each.value
 
-}
 
 
