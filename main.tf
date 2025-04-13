@@ -17,7 +17,7 @@ resource "aws_instance" "terraweb1" {
   instance_type = "t2.micro"
   ami           = "ami-04aabd45b36980079"
   key_name      = "kp-4-2-25"
-   provisioner "remote-exec" {
+  provisioner "remote-exec" {
     inline = [
       "sudo yum update -y",
       "sudo yum install -y httpd",
@@ -28,7 +28,7 @@ resource "aws_instance" "terraweb1" {
   }
   connection {
     type        = "ssh"
-    user        = "ec2-user"           # or "ubuntu" for Ubuntu AMIs
+    user        = "ec2-user" # or "ubuntu" for Ubuntu AMIs
     private_key = var.private_key_pem
     host        = self.public_ip
   }
@@ -49,7 +49,7 @@ resource "aws_instance" "terraweb2" {
   }
   connection {
     type        = "ssh"
-    user        = "ec2-user"           # or "ubuntu" for Ubuntu AMIs
+    user        = "ec2-user" # or "ubuntu" for Ubuntu AMIs
     private_key = var.private_key_pem
     host        = self.public_ip
   }
