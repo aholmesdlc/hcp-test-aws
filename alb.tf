@@ -27,6 +27,7 @@ resource "aws_lb_target_group_attachment" "example" {
   for_each         = toset([aws_instance.terraweb1.id, aws_instance.terraweb2.id])
   port             = 80
   target_id        = each.value
+}
 
 
 
