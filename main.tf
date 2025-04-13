@@ -14,8 +14,10 @@ provider "aws" {
 }
 
 resource "aws_instance" "terraweb1" {
-  # (resource arguments)
+  instance_type = "t2.micro"  
+  ami = "ami-04aabd45b36980079"
 }
 resource "aws_instance" "terraweb2" {
-  # (resource arguments)
+  instance_type = "t2 .micro"   
+  ami = "ami-04aabd45b36980079"
 }
