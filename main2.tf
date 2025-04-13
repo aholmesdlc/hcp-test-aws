@@ -16,5 +16,6 @@ resource "aws_lb_listener" "http" {
   }
 resource "aws_lb_target_group" "terraweb-tg" {
   port              = "80"
+  protocol = "HTTP"
 }
 
