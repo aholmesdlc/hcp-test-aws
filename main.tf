@@ -18,6 +18,6 @@ resource "aws_instance" "terraweb1" {
   ami = "ami-04aabd45b36980079"
 }
 resource "aws_instance" "terraweb2" {
-  instance_type = "t2 .micro"   
+  instance_type = "t2.micro"   
   ami = "ami-04aabd45b36980079"
 }
