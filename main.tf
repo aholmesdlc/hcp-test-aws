@@ -16,18 +16,42 @@ provider "aws" {
 resource "aws_instance" "terraweb1" {
   instance_type = "t2.micro"
   ami           = "ami-04aabd45b36980079"
-  user_data     = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y httpd
-              systemctl start httpd
-              systemctl enable httpd
+  key_name      = "kp-4-2-25"
+   provisioner "remote-exec" {
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install -y httpd",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd",
+      "echo '<html><h1>Provisioned with Terraform 🚀</h1></html>' | sudo tee /var/www/html/index.html"
+    ]
+  }
+  connection {
+    type        = "ssh"
+    user        = "ec2-user"           # or "ubuntu" for Ubuntu AMIs
+    private_key = file("~/Documents/kp-4-2-25.pem")
+    host        = self.public_ip
+  }
 
-              echo "<html><h1>Deployed by Terraform 🚀</h1></html>" > /var/www/html/index.html
-              EOF
 }
 resource "aws_instance" "terraweb2" {
   instance_type = "t2.micro"
   ami           = "ami-04aabd45b36980079"
+  key_name      = "kp-4-2-25"
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install -y httpd",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd",
+      "echo '<html><h1>Provisioned with Terraform 🚀</h1></html>' | sudo tee /var/www/html/index.html"
+    ]
+  }
+  connection {
+    type        = "ssh"
+    user        = "ec2-user"           # or "ubuntu" for Ubuntu AMIs
+    private_key = file("~/Documents/kp-4-2-25.pem")
+    host        = self.public_ip
+  }
 }
 
