@@ -29,7 +29,7 @@ resource "aws_instance" "terraweb1" {
   connection {
     type        = "ssh"
     user        = "ec2-user"           # or "ubuntu" for Ubuntu AMIs
-    private_key = file("~/Documents/kp-4-2-25.pem")
+    private_key = file("/Users/aholmes/Documents/kp-4-2-25.pem")
     host        = self.public_ip
   }
 
@@ -50,7 +50,7 @@ resource "aws_instance" "terraweb2" {
   connection {
     type        = "ssh"
     user        = "ec2-user"           # or "ubuntu" for Ubuntu AMIs
-    private_key = file("~/Documents/kp-4-2-25.pem")
+    private_key = file("/Users/aholmes/Documents/kp-4-2-25.pem")
     host        = self.public_ip
   }
 }
