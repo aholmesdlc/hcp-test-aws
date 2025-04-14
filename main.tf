@@ -1,17 +1,17 @@
-# terraform {
-#   cloud {
+terraform {
+  cloud {
 
-#     organization = "DLC-HCP"
+    organization = "DLC-HCP"
 
-#     workspaces {
-#       name = "hcp-workspace-aws"
-#     }
-#   }
+    workspaces {
+      name = "hcp-workspace-aws"
+    }
+  }
 
-# }
-# provider "aws" {
-#   region = "us-west-2"
-# }
+}
+provider "aws" {
+  region = "us-west-2"
+}
 
 # resource "aws_instance" "terraweb1" {
 #   instance_type          = "t2.micro"
